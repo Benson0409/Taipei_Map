@@ -110,15 +110,16 @@ export default function MapScreen() {
             </Marker>
           ))}
         {zoomRatio > 0.14 &&
-          ubike.map((site) => (
+          ubike.map((site, index) => (
             <Marker
               coordinate={{
                 latitude: Number(site.lat),
                 longitude: Number(site.lng),
               }}
-              key={site.sno}
+              key={index}
               title={`${site.sna} ${site.sbi}/${site.bemp}`}
               description={site.ar}
+              tracksViewChanges={false}
             >
               <ActionButton zoomRatio={zoomRatio} site={site} />
             </Marker>
